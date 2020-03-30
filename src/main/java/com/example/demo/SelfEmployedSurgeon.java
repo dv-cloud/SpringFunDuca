@@ -5,18 +5,19 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 
-public class SelfEmployed implements Worker {
+public class SelfEmployedSurgeon implements Worker {
+    @Autowired
+    @Qualifier("doctor")
     private Employee contractor;
     private String name;
 
-    @Autowired
-    public SelfEmployed(Employee contractor, String name) {
+    public SelfEmployedSurgeon(Employee contractor, String name) {
         this.contractor = contractor;
         this.name = name;
     }
 
 
-    public SelfEmployed(String name) {
+    public SelfEmployedSurgeon(String name) {
         this.name = name;
     }
 
@@ -32,6 +33,7 @@ public class SelfEmployed implements Worker {
     public void setContractor(Employee contractor) {
         this.contractor = contractor;
     }
+
 
     public String getName() {
         return name;

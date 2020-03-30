@@ -1,17 +1,14 @@
 package com.example.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
 
 
 public class Employee implements Worker {
-    private SelfEmployed contractor;
+    @Autowired
+    private SelfEmployedSurgeon contractor;
     private String name;
 
-    @Autowired
-    public Employee(SelfEmployed contractor, String name) {
+    public Employee(SelfEmployedSurgeon contractor, String name) {
         this.contractor = contractor;
         this.name = name;
     }
@@ -25,11 +22,11 @@ public class Employee implements Worker {
         return "Employee";
     }
 
-    public SelfEmployed getContractor() {
+    public SelfEmployedSurgeon getContractor() {
         return contractor;
     }
 
-    public void setContractor(SelfEmployed contractor) {
+    public void setContractor(SelfEmployedSurgeon contractor) {
         this.contractor = contractor;
     }
 
